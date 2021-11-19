@@ -1,0 +1,52 @@
+{
+  "_comment" : "Configuration for tb3 waffle stereo camera, change the path of the config files loaded below",
+  "manager" :{
+      "show_live" : false
+  },
+  "cameras": [
+    {"model": "perspective",
+     "number": 0,
+     "fx": 476.7030836014194,
+     "fy": 476.7030836014194,
+     "cx": 400.5,
+     "cy": 300.5,
+     "resolution_x": 800,
+     "resolution_y": 600,
+     "translation": [0.0, 0.1, 0.0],
+     "rotation_vec": [0.0, 0.0, 0.0],
+     "fps": 4.5,
+     "focal_x_baseline": 47.67030836014194,
+     "mask": "image"
+    },
+     
+    {"model": "perspective",
+     "number": 1,
+     "fx": 476.7030836014194,
+     "fy": 476.7030836014194,
+     "cx": 400.5,
+     "cy": 300.5,
+     "resolution_x": 800,
+     "resolution_y": 600,
+     "translation": [0.0, 0.0, 0.0],
+     "rotation_vec": [0.0, 0.0, 0.0],
+     "fps": 4.5,
+     "focal_x_baseline": 47.67030836014194,
+     "mask": "image"
+    }
+  ],
+    
+    "trackers": [
+      {"type": "VSLAMStereo",
+       "configuration": {
+        "liveView": true,
+        "cameraSetup" : "stereo",
+        "waitForNavigation" : false,
+        "slamKeypoints" : 1500,
+        "useMapDb" : false,
+        "enableMapping": true,
+         "configFromFile": "/home/jasbot/dev/my_tb3_ws/src/turtlebot3/turtlebot3_lpslam/config/tb3_stereo.yaml",
+         "vocabFile": "/home/jasbot/dev/my_tb3_ws/src/turtlebot3/turtlebot3_lpslam/config/orb_vocab.dbow2"
+        }
+      }
+    ]
+}
