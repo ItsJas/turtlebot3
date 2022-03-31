@@ -1,0 +1,45 @@
+lpslam_node:
+  ros__parameters:
+    use_sim_time: True
+    lpslam_config: "/home/jasbot/dev/my_tb3_ws/src/turtlebot3/turtlebot3_lpslam/config/gazebo_openvslam_tb3.json"
+    lpslam_log_file: "tb3_lpslam.log"
+    write_lpslam_log: True
+    stereo_camera: True
+    consume_laser: True
+    combined_stereo_image: False
+    timespan_match: 0.010
+    map_name: "/map"
+    map_frame_id: "map"
+    camera_frame_id: "camera_rgb_left_frame"
+    odom_frame_id: "odom"
+    base_frame_id: "base_link"
+    left_image_topic: "/stereo_camera/left/image_raw"
+    right_image_topic: "/stereo_camera/right/image_raw"
+    camera_info_topic: "/stereo_camera/left/camera_info"
+    camera_fps: 4.5
+    initial_pose_topic: "/initialpose"
+    laserscan_topic: "scan"
+    laserscan_frame_id: "base_scan"
+    pointcloud_topic: "slam_features"
+    pointcloud_rate: 10
+    map_rate: 5
+    lpslam_status_topic: "lpslam_status"
+    use_odometry: True
+    slam_mode: "slam"
+    mapping_during_localization: True
+    transform_tolerance: 0.5
+    OpenVSLAM:
+      config_yaml: "/home/jasbot/dev/my_tb3_ws/src/turtlebot3/turtlebot3_lpslam/config/tb3_stereo.yaml"
+      vocab_file: "/home/jasbot/dev/my_tb3_ws/src/turtlebot3/turtlebot3_lpslam/config/orb_vocab.dbow2"
+
+      map_database: "map.db"
+      max_num_keypoints: 1000
+      ini_max_num_keypoints: 2000
+      scale_factor: 1.2
+      num_levels: 8
+      ini_fast_threshold: 20
+      min_fast_threshold: 7
+      depth_threshold: 40.0
+      depthmap_factor: 1.0
+      mapping_baseline_dist_thr: 0.1
+      pangolin_viewer_fps: 10.0

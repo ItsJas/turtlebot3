@@ -9,30 +9,21 @@ def generate_launch_description():
 
     # Config files directory      
     lpslam_config_dir = os.path.join(get_package_share_directory('turtlebot3_lpslam'), 'config')
+    params = os.path.join(lpslam_config_dir, 'lpslam_params.yaml') 
 
     return LaunchDescription([
         # lpslam
         Node(
             package='lpslam',
-            #namespace='lpslam',
             executable='lpslam_node',
-            name='lpslam_compute',
+            name='lpslam_node',
             output='screen',
             emulate_tty=True,
-            parameters=[
-                {"use_sim_time" : True},
-                {"laserscan_frame_id" : 'base_scan'},
-                {"lpslam_config": os.path.join(lpslam_config_dir, 'gazebo_openvslam_tb3.json')},
-                {"write_lpslam_log" : True}
-            ],
+            parameters=[params],
 
             arguments= [
                 '--ros-args', '--log-level', 'INFO'
             ],
-            remappings=[
-                ('left_image_raw', 'stereo_camera/left/image_raw'),
-                ('right_image_raw', 'stereo_camera/right/image_raw')
-            ]
         ),
         # rviz
         Node(
